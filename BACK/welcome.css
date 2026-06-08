@@ -1,0 +1,219 @@
+ /* Paleta: amarillo (#ffd54a), verde (#2e8b57), blanco (#ffffff) */
+        :root { /* Variables CSS para usar colores de la empresa */
+            --amarillo: #ffd54a; /* Variable del color amarillo */
+            --verde: #2e8b57; /* Variable del color verde */
+            --blanco: #ffffff; /* Variable del color blanco */
+            --texto: #1a1a1a; /* Color de texto principal */
+            --alto-header: 64px; /* Altura de la barra de navegación */
+        } /* Cierre de :root */
+        html, body { /* Reset básico para html y body */
+            height: 100%; /* Asegura que el body ocupe toda la altura disponible */
+            margin: 0; /* Elimina márgenes por defecto */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial; /* Tipografía legible */
+            color: var(--texto); /* Color de texto por defecto */
+            background: var(--blanco); /* Fondo blanco */
+        } /* Cierre de html, body */
+        .container { /* Contenedor principal de la página */
+            min-height: 100vh; /* Hace que el contenedor ocupe toda la pantalla vertical */
+            display: flex; /* Activa flexbox para distribuir encabezado, contenido y pie */
+            flex-direction: column; /* Coloca elementos en columna */
+        } /* Cierre de .container */
+        header.navbar { /* Estilos de la barra de navegación */
+            height: var(--alto-header); /* Altura definida para el header */
+            background: linear-gradient(90deg, var(--amarillo), var(--verde)); /* Gradiente entre amarillo y verde */
+            display: flex; /* Usa flex para alinear logo y menú */
+            align-items: center; /* Centra verticalmente el contenido */
+            justify-content: space-between; /* Espacia logo a la izquierda y menú a la derecha */
+            padding: 0 16px; /* Espacio interior horizontal */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08); /* Sombra sutil debajo de la barra */
+        } /* Cierre de header.navbar */
+        .logo { /* Contenedor del logo en la barra */
+            display: flex; /* Usa flex para alinear icono y texto del logo */
+            align-items: center; /* Centrado vertical */
+            gap: 10px; /* Espacio entre icono y texto */
+            text-decoration: none; /* El logo no tiene subrayado */
+            color: var(--blanco); /* Texto del logo en blanco */
+            font-weight: 700; /* Texto del logo en negrita */
+            font-size: 1.1rem; /* Tamaño de fuente del logo */
+        } /* Cierre de .logo */
+        .logo svg { /* Ajustes del SVG del logo */
+            width: 40px; /* Ancho del icono SVG */
+            height: 40px; /* Alto del icono SVG */
+            display: block; /* Evita espacios inferiores */
+        } /* Cierre de .logo svg */
+        nav.menu { /* Contenedor del menú de navegación */
+            display: flex; /* Lista horizontal */
+            gap: 12px; /* Espacio entre enlaces */
+            align-items: center; /* Centrado vertical */
+        } /* Cierre de nav.menu */
+        nav.menu a { /* Estilo de cada enlace del menú */
+            color: var(--blanco); /* Color blanco para enlaces */
+            text-decoration: none; /* Sin subrayado */
+            padding: 8px 12px; /* Espacio interno para hacer clic más fácil */
+            border-radius: 6px; /* Bordes redondeados en los enlaces */
+            transition: background-color 0.15s ease; /* Transición suave al pasar el cursor */
+            font-weight: 600; /* Negrita ligera para enlaces */
+        } /* Cierre de nav.menu a */
+        nav.menu a:hover { /* Estado hover de los enlaces */
+            background: rgba(255,255,255,0.12); /* Fondo claro semitransparente al pasar el mouse */
+        } /* Cierre de nav.menu a:hover */
+        main.content { /* Zona principal de contenido */
+            flex: 1; /* Toma el espacio restante entre header y footer */
+            display: flex; /* Flex para centrar contenido */
+            align-items: center; /* Centrado vertical */
+            justify-content: center; /* Centrado horizontal */
+            padding: 32px; /* Espacio interior */
+            background: linear-gradient(180deg, rgba(255,213,74,0.08), rgba(46,139,87,0.03)); /* Suave fondo con los colores de la marca */
+        } /* Cierre de main.content */
+        .welcome-box { /* Caja principal de bienvenida */
+            background: var(--blanco); /* Fondo blanco */
+            border-radius: 12px; /* Bordes redondeados */
+            padding: 24px; /* Espacio interno */
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08); /* Sombra para destacar */
+            max-width: 900px; /* Ancho máximo razonable */
+            width: 100%; /* Ocupa 100% hasta el max-width */
+            text-align: center; /* Texto centrado */
+        } /* Cierre de .welcome-box */
+        .welcome-box h1 { /* Título principal */
+            margin: 0 0 8px 0; /* Márgenes: arriba 0, abajo 8px */
+            color: var(--verde); /* Título en color verde */
+            font-size: 1.8rem; /* Tamaño del título */
+        } /* Cierre de .welcome-box h1 */
+        .welcome-box p { /* Párrafo descriptivo */
+            margin: 0; /* Sin margen por defecto */
+            color: #333; /* Gris oscuro para mejor lectura */
+        } /* Cierre de .welcome-box p */
+        footer.site-footer { /* Pie de página */
+            height: 56px; /* Altura del footer */
+            background: var(--verde); /* Fondo verde */
+            color: var(--blanco); /* Texto en blanco */
+            display: flex; /* Flex para centrar contenido */
+            align-items: center; /* Centrado vertical */
+            justify-content: center; /* Centrado horizontal */
+            font-size: 0.95rem; /* Tamaño de fuente un poco más pequeño */
+        } /* Cierre de footer.site-footer */
+        /* Estilos responsivos: menú colapsa en pantallas pequeñas */
+        @media (max-width: 560px) { /* Punto de quiebre móvil */
+            nav.menu { /* Ajustes para el menú en móvil */
+                gap: 8px; /* Menos espacio entre enlaces */
+                font-size: 0.95rem; /* Texto ligeramente más pequeño */
+            } /* Cierre de nav.menu dentro de media query */
+            .logo { /* Ajuste del logo en móvil */
+                font-size: 1rem; /* Texto del logo un poco más pequeño */
+            } /* Cierre de .logo dentro de media query */
+            .welcome-box { /* Ajuste de la caja de bienvenida en móvil */
+                padding: 16px; /* Menos padding en pantallas pequeñas */
+            } /* Cierre de .welcome-box dentro de media query */
+        } /* Cierre de media query */
+
+
+
+                            /* Hacer que el carrusel abarque todo el ancho del viewport aunque esté dentro de un contenedor centrado */
+                    .hero-carousel {
+                        position: relative;
+                        left: 50%;
+                        right: 50%;
+                        margin-left: -50vw;
+                        width: 99.48vw;
+                        max-height: 500px;         /* No muy alto */
+                        height: 40vh;              /* Ajustable: ocupa una fracción de la altura de la ventana */
+                        overflow: hidden;
+                        display: block;
+                        box-sizing: border-box;
+                        background: #111;
+                    }
+
+                    .hero-carousel .slides {
+                        display: flex;
+                        height: 100%;
+                        transition: transform 600ms ease;
+                        will-change: transform;
+                    }
+
+                    .hero-carousel .slide {
+                        min-width: 100%;
+                        height: 100%;
+                        flex: 0 0 100%;
+                    }
+
+                    .hero-carousel img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        display: block;
+                    }
+
+                    .carousel-btn {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: rgba(0,0,0,0.45);
+                        border: 0;
+                        color: #fff;
+                        padding: 0.4rem 0.7rem;
+                        font-size: 1.6rem;
+                        cursor: pointer;
+                        border-radius: 4px;
+                        line-height: 1;
+                        backdrop-filter: blur(4px);
+                    }
+
+                    .carousel-btn.prev { left: 12px; }
+                    .carousel-btn.next { right: 12px; }
+
+                    .carousel-btn:focus { outline: 2px solid #ffd54a; }
+
+                    .dots {
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        bottom: 10px;
+                        display: flex;
+                        gap: 8px;
+                    }
+
+                    .dots button {
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        border: 0;
+                        background: rgba(255,255,255,0.55);
+                        padding: 0;
+                        cursor: pointer;
+                    }
+
+                    .dots button[aria-pressed="true"] {
+                        background: #ffd54a;
+                        box-shadow: 0 0 0 3px rgba(45,139,87,0.12);
+                    }
+
+                    /* Accesibilidad: reduce motion */
+                    @media (prefers-reduced-motion: reduce) {
+                        .hero-carousel .slides { transition: none; }
+                    }
+
+
+ /* Layout */
+                .about-inner { display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap; margin:2rem; }
+                .about-text { flex:1 1 320px; }
+                .about-figure { flex:0 0 320px; margin:0; }
+                .about-figure img { display:block; width:100%; height:auto; border-radius:8px; }
+
+                .affiliates-section { display:flex; justify-content:center; margin:1.5rem 0 3rem; }
+                .affiliates-card { display:flex; flex-direction:column; align-items:center; padding:1rem 1.5rem; border-radius:10px; background:linear-gradient(135deg,#fafafa,#f0f6ff); box-shadow:0 6px 18px rgba(0,0,0,0.06); }
+
+                .count { font-weight:700; font-size:2rem; display:flex; align-items:baseline; gap:0.3rem; }
+                .count-value { font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+                .count-plus { font-size:1.2rem; color:#2b6cb0; }
+
+                .count-label { font-size:0.95rem; color:#555; margin-top:0.25rem; }
+
+                /* Reveal animation */
+                .reveal { opacity:0; transform:translateY(18px) scale(0.995); transition:opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1); will-change:opacity,transform; }
+                .reveal.visible { opacity:1; transform:none; }
+
+                /* Small screens */
+                @media (max-width:700px) {
+                    .about-inner { flex-direction:column-reverse; }
+                    .about-figure { width:100%; }
+                }

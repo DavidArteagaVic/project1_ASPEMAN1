@@ -4,8 +4,10 @@
     <meta charset="utf-8"> <!-- Codificación de caracteres UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Hace la página responsive en móviles -->
     <title>Página de inicio - Empresa</title> <!-- Título que aparece en la pestaña del navegador -->
-    <link rel="stylesheet" href="../BACK/welcome.css">
-    <style> /* Inicio de estilos CSS */ 
+    <link rel="stylesheet" href="../estilos/welcome.css"> <!-- Enlace a la hoja de estilos CSS externa -->
+    <script src="../scripts/welcome.js" defer></script> <!-- Enlace a un archivo JavaScript externo, con defer para cargarlo después del HTML -->
+    <style> /* Inicio de estilos CSS */     
+
     </style> <!-- Fin de estilos CSS -->
 </head> <!-- Cierre de head -->
 <body> <!-- Inicio del cuerpo visible de la página -->
@@ -27,13 +29,13 @@
          <section class="hero-carousel" aria-label="Carrusel de imágenes">
                 <div class="slides" role="list">
                     <div class="slide" role="listitem">
-                        <img src="../FILES/ChatGPT Image 12 jun 2025, 12_29_49.png" alt="Imagen 1 — ejemplo">
+                        <img src="../../FILES/ChatGPT Image 12 jun 2025, 12_29_49.png" alt="Imagen 1 — ejemplo">
                     </div>
                     <div class="slide" role="listitem">
-                        <img src="../FILES/clases.png" alt="Imagen 2 — ejemplo">
+                        <img src="../../FILES/clases.png" alt="Imagen 2 — ejemplo">
                     </div>
                     <div class="slide" role="listitem">
-                        <img src="../FILES/family.jpg" alt="Imagen 3 — ejemplo">
+                        <img src="../../FILES/family.jpg" alt="Imagen 3 — ejemplo">
                     </div>
                 </div>
 
@@ -118,78 +120,106 @@
                     </div>
 
                     <figure class="about-figure reveal" data-delay="240">
-                        <img src="../FILES/ChatGPT Image 12 jun 2025, 12_29_49.png" alt="Foto del equipo de la empresa" width="560" height="360">
-                        <figcaption>Nuestro equipo</figcaption>
+                        <img src="../../FILES/pensionados-jubilados-desktop.png" alt="Foto del equipo de la empresa" width="560" height="360">
+                        
                     </figure>
                 </div>
             </section>
 
-            <section class="affiliates-section">
-                <div class="affiliates-card reveal" data-delay="360" aria-live="polite">
-                    <div class="count">
-                        <span class="count-value" data-target="234">0</span>
-                        <span class="count-plus">+</span>
+            
+            <section class="about-section" aria-labelledby="about-title">
+                <div class="about-inner2 reveal">
+                    <figure class="about-figure reveal" data-delay="240">
+                        <img src="../../FILES/610e034b5ae87.jpeg" alt="Foto del equipo de la empresa" width="560" height="360">
+                        
+                    </figure>
+                    <div class="affiliates-section">
+                        <div class="affiliates-card reveal" data-delay="360" aria-live="polite">
+                            <div class="count">
+                                <span class="count-plus">+</span>
+                                <span class="count-value" data-target="234">0</span>
+                                
+                            </div>
+                            <div class="count-label">afiliados</div>
+                        </div>
                     </div>
-                    <div class="count-label">afiliados</div>
                 </div>
             </section>
 
-
+            <section class="features-section" aria-labelledby="benefits-title">
+                <h2 id="benefits-title" class="reveal">Qué ganas siendo afiliado</h2>
+                <div class="features-grid reveal">
+                    <article class="flip-card" tabindex="0" aria-label="Asesoría jurídica">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <svg class="flip-card-icon" viewBox="0 0 64 64" aria-hidden="true">
+                                    <path d="M32 4L8 16v16c0 16 24 24 24 24s24-8 24-24V16L32 4z" fill="currentColor"/>
+                                    <path d="M20 24h24M32 18v20" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+                                </svg>
+                                <h3>Asesoría jurídica</h3>
+                                <p>Apoyo legal y orientación para tus trámites.</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>Asesoría jurídica</h3>
+                                <p>Accede a asesoría legal personalizada para trámites, documentos y consultas, con respaldo profesional.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="flip-card" tabindex="0" aria-label="Salud">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <svg class="flip-card-icon" viewBox="0 0 64 64" aria-hidden="true">
+                                    <circle cx="32" cy="24" r="12" fill="currentColor"/>
+                                    <path d="M32 36v18M22 46h20" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+                                </svg>
+                                <h3>Salud</h3>
+                                <p>Servicios médicos y bienestar para ti.</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>Salud</h3>
+                                <p>Disfruta de apoyo en salud, programas preventivos y atención para cuidar tu bienestar y el de tu familia.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="flip-card" tabindex="0" aria-label="Actividades recreativas">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <svg class="flip-card-icon" viewBox="0 0 64 64" aria-hidden="true">
+                                    <path d="M16 20h32v8H16z" fill="currentColor"/>
+                                    <path d="M16 36h32v8H16z" fill="currentColor"/>
+                                    <path d="M24 48h16v8H24z" fill="currentColor"/>
+                                </svg>
+                                <h3>Actividades</h3>
+                                <p>Recreación y eventos para compartir.</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>Actividades recreativas</h3>
+                                <p>Participa en eventos, talleres y encuentros diseñados para disfrutar y conectarte con otros afiliados.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="flip-card" tabindex="0" aria-label="Convenios">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <svg class="flip-card-icon" viewBox="0 0 64 64" aria-hidden="true">
+                                    <path d="M14 16h36v32H14z" fill="currentColor"/>
+                                    <path d="M22 26h20M22 34h16" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+                                    <path d="M16 14l10 10M48 14l-10 10" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+                                </svg>
+                                <h3>Convenios</h3>
+                                <p>Descuentos y alianzas exclusivas.</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>Convenios</h3>
+                                <p>Aprovecha acuerdos especiales con comercios y servicios aliados que te ofrecen descuentos exclusivos como afiliado.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
 
             <script>
-                (function () {
-                    const reveals = Array.from(document.querySelectorAll('.reveal'));
-                    if (!('IntersectionObserver' in window) || reveals.length === 0) {
-                        // Fallback: reveal immediately and set counts
-                        reveals.forEach(r => r.classList.add('visible'));
-                        document.querySelectorAll('.count-value').forEach(el => el.textContent = '+' + el.dataset.target);
-                        return;
-                    }
-
-                    const observer = new IntersectionObserver((entries, obs) => {
-                        entries.forEach(entry => {
-                            if (!entry.isIntersecting) return;
-                            const el = entry.target;
-                            // apply optional delay
-                            const delay = parseInt(el.getAttribute('data-delay')) || 0;
-                            el.style.transitionDelay = `${delay}ms`;
-                            el.classList.add('visible');
-
-                            // if there's a counter inside, animate it once
-                            const counter = el.querySelector && el.querySelector('.count-value');
-                            if (counter && !counter.dataset.animated) {
-                                animateCount(counter, parseInt(counter.dataset.target) || 0);
-                                counter.dataset.animated = '1';
-                            }
-
-                            // stop observing once revealed
-                            obs.unobserve(el);
-                        });
-                    }, { threshold: 0.18 });
-
-                    reveals.forEach(r => observer.observe(r));
-
-                    function animateCount(el, target) {
-                        const duration = 1400;
-                        const start = performance.now();
-                        function step(now) {
-                            const p = Math.min((now - start) / duration, 1);
-                            const eased = easeOutCubic(p);
-                            const value = Math.floor(eased * target);
-                            el.textContent = value;
-                            if (p < 1) requestAnimationFrame(step);
-                            else el.textContent = target;
-                        }
-                        // show plus sign by updating sibling if present
-                        const plus = el.parentElement && el.parentElement.querySelector('.count-plus');
-                        if (plus) {
-                            // ensure plus positioned consistently during animation
-                        }
-                        requestAnimationFrame(step);
-                    }
-
-                    function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
-                })();
+    
             </script>
         <main class="content"> <!-- Área central de contenido -->
            

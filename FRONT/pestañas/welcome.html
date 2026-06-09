@@ -3,7 +3,7 @@
 <head> <!-- Contenedor de metadatos y estilos -->
     <meta charset="utf-8"> <!-- Codificación de caracteres UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Hace la página responsive en móviles -->
-    <title>Página de inicio - Empresa</title> <!-- Título que aparece en la pestaña del navegador -->
+    <title>ASPEMAN</title> <!-- Título que aparece en la pestaña del navegador -->
     <link rel="stylesheet" href="../estilos/welcome.css"> <!-- Enlace a la hoja de estilos CSS externa -->
     <script src="../scripts/welcome.js" defer></script> <!-- Enlace a un archivo JavaScript externo, con defer para cargarlo después del HTML -->
     <style> /* Inicio de estilos CSS */     
@@ -14,11 +14,15 @@
     <div class="container"> <!-- Contenedor principal que organiza header, main y footer -->
         <header class="navbar"> <!-- Barra de navegación superior -->
             <a href="#" class="logo" aria-label="Inicio"> <!-- Enlace del logo que lleva al inicio -->
-                <svg viewBox="0 0 100 100" role="img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"> <!-- Icono SVG simple como logo -->
-                    <circle cx="30" cy="50" r="18" fill="#ffd54a"></circle> <!-- Círculo amarillo que representa parte del logo -->
-                    <rect x="50" y="28" width="34" height="44" rx="8" fill="#2e8b57"></rect> <!-- Rectángulo verde que complementa el logo -->
-                </svg> <!-- Cierre del SVG -->
-                Empresa <!-- Texto del logo (nombre de la empresa) -->
+
+                <img 
+                    src="../../FILES/LOGO.png" 
+                    alt="Logo de ASPEMAN" 
+                    width="32" 
+                    height="32" 
+                    style="margin-left:8px; border-radius:4px;"
+                > <!-- Imagen del logo con texto alternativo -->
+                ASPEMAN <!-- Texto del logo (nombre de la empresa) -->
             </a> <!-- Cierre del enlace del logo -->
             <nav class="menu" aria-label="Menú principal"> <!-- Menú de navegación -->
                 <a href="#" title="Inicio">Inicio</a> <!-- Enlace al inicio -->
@@ -146,6 +150,33 @@
                 </div>
             </section>
 
+            <script>
+    
+            </script>
+        <main class="content"> <!-- Área central de contenido -->
+
+            <div class="chatbot-widget">
+                <button type="button" class="chatbot-toggle" aria-label="Abrir chat">
+                    <span aria-hidden="true">💬</span>
+                </button>
+                <section class="chatbot-panel" aria-labelledby="chatbot-title" aria-hidden="true">
+                    <div class="chatbot-header">
+                        <div>
+                            <p class="chatbot-label">Asistente</p>
+                            <h2 id="chatbot-title">Chat básico</h2>
+                        </div>
+                        <button type="button" class="chatbot-close" aria-label="Cerrar chat">×</button>
+                    </div>
+                    <div class="chatbot-window" role="application" aria-label="Chat de ayuda">
+                        <div class="chatbot-messages" aria-live="polite" aria-atomic="false"></div>
+                        <form class="chatbot-form" aria-label="Enviar mensaje al chatbot">
+                            <input type="text" name="message" placeholder="Escribe tu mensaje..." autocomplete="off" required>
+                            <button type="submit">Enviar</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+
             <section class="features-section" aria-labelledby="benefits-title">
                 <h2 id="benefits-title" class="reveal">Qué ganas siendo afiliado</h2>
                 <div class="features-grid reveal">
@@ -218,16 +249,82 @@
                 </div>
             </section>
 
-            <script>
-    
-            </script>
-        <main class="content"> <!-- Área central de contenido -->
-           
+            <section class="activities-nearby" aria-labelledby="nearby-title">
+                <h2 id="nearby-title">Actividades más cercanas</h2>
+                <table class="activities-table" aria-describedby="activities-description" style="width:100%; border-collapse:collapse; margin:1.25rem 0 2rem; font-family:inherit; background:#fff; box-shadow:0 18px 40px rgba(0,0,0,.08); border-radius:20px; overflow:hidden;">
+                    <caption id="activities-description" style="caption-side:top; text-align:left; padding:1.25rem 1.5rem; font-weight:700; font-size:1.05rem; color:#114d2e;">Programa de actividades próximas</caption>
+                    <thead style="background:linear-gradient(135deg,#2e8b57,#4caf50); color:#fff;">
+                        <tr>
+                            <th scope="col" style="padding:1rem 1.2rem; text-align:left;">Actividad</th>
+                            <th scope="col" style="padding:1rem 1.2rem; text-align:left;">Fecha</th>
+                            <th scope="col" style="padding:1rem 1.2rem; text-align:left;">Hora</th>
+                            <th scope="col" style="padding:1rem 1.2rem; text-align:left;">Lugar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr tabindex="0" aria-label="Reunión informativa local" style="background:#f7fff7; border-bottom:1px solid rgba(46,139,87,.12);">
+                            <td style="padding:1rem 1.2rem;">Reunión informativa</td>
+                            <td style="padding:1rem 1.2rem;">Jueves 12 de junio</td>
+                            <td style="padding:1rem 1.2rem;">18:00</td>
+                            <td style="padding:1rem 1.2rem;">Centro comunitario</td>
+                        </tr>
+                        <tr tabindex="0" aria-label="Taller de salud y bienestar" style="border-bottom:1px solid rgba(46,139,87,.12);">
+                            <td style="padding:1rem 1.2rem;">Taller de bienestar</td>
+                            <td style="padding:1rem 1.2rem;">Sábado 14 de junio</td>
+                            <td style="padding:1rem 1.2rem;">10:00</td>
+                            <td style="padding:1rem 1.2rem;">Sala de eventos</td>
+                        </tr>
+                        <tr tabindex="0" aria-label="Paseo cultural al parque" style="background:#f7fff7;">
+                            <td style="padding:1rem 1.2rem;">Paseo cultural</td>
+                            <td style="padding:1rem 1.2rem;">Domingo 15 de junio</td>
+                            <td style="padding:1rem 1.2rem;">09:00</td>
+                            <td style="padding:1rem 1.2rem;">Parque central</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
+                        <section class="call-to-action" aria-labelledby="cta-title" style="background:#2e8b57; color:#fff; padding:2rem 1.5rem; border-radius:20px; margin:2rem 0; text-align:center; box-shadow:0 18px 40px rgba(0,0,0,.08);">
+                <div style="max-width:800px; margin:0 auto;">
+                    <h2 id="cta-title" style="font-size:1.8rem; margin-bottom:0.75rem;">Afíliate o Contáctanos</h2>
+                    <p style="font-size:1rem; margin-bottom:1.25rem; line-height:1.6;">Únete hoy y descubre todos los beneficios. Nuestro equipo está listo para atenderte y ayudarte a formar parte de nuestra comunidad.</p>
+                    <a href="contacto.html" style="display:inline-block; padding:0.95rem 1.75rem; background:#fff; color:#2e8b57; font-weight:700; border-radius:999px; text-decoration:none; transition:background .2s ease, color .2s ease;">Contáctanos</a>
+                </div>
+            </section>
+            <section class="company-info" aria-labelledby="company-info-title" style="background:#f4f8f4; border-radius:20px; padding:2rem; margin:2rem 0; box-shadow:0 18px 40px rgba(0,0,0,.05);">
+                <div style="display:flex; flex-wrap:wrap; align-items:center; gap:1.5rem;">
+                    <img src="../../FILES/images.jpeg" alt="Logo de la empresa" style="width:120px; max-width:100%; border-radius:16px; background:#fff; padding:0.75rem;" />
+                    <div style="flex:1; min-width:220px;">
+                        <h2 id="company-info-title" style="margin:0 0 0.75rem 0; color:#114d2e; font-size:1.75rem;">Información de la empresa</h2>
+                        <p style="margin:0; line-height:1.6; color:#174f2f;">Nuestra empresa está comprometida a brindar servicios de calidad y acompañamiento cercano. Aquí encontrarás todos los datos necesarios para contactarnos.</p>
+                    </div>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.75rem; color:#114d2e;">
+                    <div style="background:#fff; padding:1rem 1.25rem; border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,.05);">
+                        <h3 style="margin:0 0 0.5rem 0; font-size:1.05rem;">Ubicación</h3>
+                        <p style="margin:0; line-height:1.6;">Calle Principal 123, Colonia Centro, Ciudad</p>
+                    </div>
+                    <div style="background:#fff; padding:1rem 1.25rem; border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,.05);">
+                        <h3 style="margin:0 0 0.5rem 0; font-size:1.05rem;">Teléfono fijo</h3>
+                        <p style="margin:0; line-height:1.6;">(55) 1234-5678</p>
+                    </div>
+                    <div style="background:#fff; padding:1rem 1.25rem; border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,.05);">
+                        <h3 style="margin:0 0 0.5rem 0; font-size:1.05rem;">Celular</h3>
+                        <p style="margin:0; line-height:1.6;">+52 1 55 9876 5432</p>
+                    </div>
+                    <div style="background:#fff; padding:1rem 1.25rem; border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,.05);">
+                        <h3 style="margin:0 0 0.5rem 0; font-size:1.05rem;">Correo electrónico</h3>
+                        <p style="margin:0; line-height:1.6;"><a href="mailto:contacto@empresa.com" style="color:#2e8b57; text-decoration:none;">contacto@empresa.com</a></p>
+                    </div>
+                </div>
+                <div style="margin-top:1.75rem; text-align:center;">
+                    <a href="contacto.html" style="display:inline-block; padding:0.95rem 1.75rem; background:#2e8b57; color:#fff; font-weight:700; border-radius:999px; text-decoration:none;">Contáctanos ahora</a>
+                </div>
+            </section>
         </main> <!-- Cierre de main.content -->
         <footer class="site-footer"> <!-- Pie de página -->
-            © 2026 Empresa — Todos los derechos reservados <!-- Texto del footer -->
-        </footer> <!-- Cierre de footer.site-footer -->
+            © 2026 ASPEMAN — Todos los derechos reservados <!-- Texto del footer -->
+        </footer> <!-- Cierre del footer.site-footer -->
     </div> <!-- Cierre del contenedor principal -->
 </body> <!-- Cierre del body -->
 </html> <!-- Cierre del documento HTML -->

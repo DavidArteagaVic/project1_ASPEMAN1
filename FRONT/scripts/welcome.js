@@ -51,3 +51,72 @@
 
                     function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
                 })();
+
+                (function () {
+                    const form = document.querySelector('.chatbot-form');
+                    const messagesEl = document.querySelector('.chatbot-messages');
+                    if (!form || !messagesEl) return;
+
+                    const responses = [
+                        { pattern: /hola|buenas|buenos dias|buenas tardes|buenas noches/i, reply: 'Hola 👋, soy tu asistente. ¿En qué puedo ayudarte hoy?' },
+                        { pattern: /afiliad|afiliar|afiliación/i, reply: 'Para afiliarte puedes ir a la sección de contacto o preguntarme por los requisitos.' },
+                        { pattern: /servicios|beneficios|convenios/i, reply: 'Ofrecemos asesoría jurídica, salud, actividades recreativas y convenios especiales.' },
+                        { pattern: /contacto|teléfono|correo|ubicación/i, reply: 'Puedes ver los datos de contacto en la sección de información de la empresa.' },
+                        { pattern: /horario|actividades|eventos/i, reply: 'Revisa la tabla de actividades próximas en la misma página para ver los horarios y lugares.' }
+                    ];
+
+                    function addMessage(text, type) {
+                        const message = document.createElement('div');
+                        message.className = `chatbot-message ${type}`;
+                        message.textContent = text;
+                        messagesEl.appendChild(message);
+                        messagesEl.scrollTop = messagesEl.scrollHeight;
+                    }
+
+                    function getReply(text) {
+                        const match = responses.find(item => item.pattern.test(text));
+                        return match ? match.reply : 'Lo siento, aún estoy aprendiendo. Prueba con: “hola”, “servicios”, “afiliación” o “contacto”.';
+                    }
+
+                    form.addEventListener('submit', event => {
+                        event.preventDefault();
+                        const input = form.querySelector('input[name="message"]');
+                        const value = input.value.trim();
+                        if (!value) return;
+
+                        addMessage(value, 'user');
+                        input.value = '';
+
+                        setTimeout(() => {
+                            addMessage(getReply(value), 'bot');
+                        }, 450);
+                    });
+
+                    addMessage('Hola! Escribe tu pregunta y te respondo con ejemplos básicos.', 'bot');
+
+                    const toggleButton = document.querySelector('.chatbot-toggle');
+                    const panel = document.querySelector('.chatbot-panel');
+                    const closeButton = document.querySelector('.chatbot-close');
+
+                    function openChat() {
+                        if (!panel) return;
+                        panel.classList.add('open');
+                        panel.setAttribute('aria-hidden', 'false');
+                        const input = panel.querySelector('input[name="message"]');
+                        input?.focus();
+                    }
+
+                    function closeChat() {
+                        if (!panel) return;
+                        panel.classList.remove('open');
+                        panel.setAttribute('aria-hidden', 'true');
+                    }
+
+                    toggleButton?.addEventListener('click', openChat);
+                    closeButton?.addEventListener('click', closeChat);
+                    document.addEventListener('keydown', event => {
+                        if (event.key === 'Escape' && panel?.classList.contains('open')) {
+                            closeChat();
+                        }
+                    });
+                })();

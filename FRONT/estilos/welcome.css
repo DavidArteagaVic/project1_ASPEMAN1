@@ -34,7 +34,7 @@
             text-decoration: none; /* El logo no tiene subrayado */
             color: var(--blanco); /* Texto del logo en blanco */
             font-weight: 700; /* Texto del logo en negrita */
-            font-size: 1.1rem; /* Tamaño de fuente del logo */
+            font-size: 2.1rem; /* Tamaño de fuente del logo */
         } /* Cierre de .logo */
         .logo svg { /* Ajustes del SVG del logo */
             width: 40px; /* Ancho del icono SVG */

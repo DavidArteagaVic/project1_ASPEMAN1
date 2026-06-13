@@ -4,10 +4,22 @@
     <meta charset="utf-8"> <!-- Codificación de caracteres UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Hace la página responsive en móviles -->
     <title>ASPEMAN</title> <!-- Título que aparece en la pestaña del navegador -->
+    <link rel="icon" href="../../FILES/LOGO.png" type="image/png"> <!-- Icono / logo de la pestaña del navegador -->
     <link rel="stylesheet" href="../estilos/welcome.css"> <!-- Enlace a la hoja de estilos CSS externa -->
     <script src="../scripts/welcome.js" defer></script> <!-- Enlace a un archivo JavaScript externo, con defer para cargarlo después del HTML -->
-    <style> /* Inicio de estilos CSS */     
+    <style> /* Inicio de estilos CSS */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: #ffffff;
+        }
 
+        .container {
+            padding-top: 80px;
+        }
     </style> <!-- Fin de estilos CSS -->
 </head> <!-- Cierre de head -->
 <body> <!-- Inicio del cuerpo visible de la página -->
@@ -18,28 +30,31 @@
                 <img 
                     src="../../FILES/LOGO.png" 
                     alt="Logo de ASPEMAN" 
-                    width="32" 
-                    height="32" 
+                    width="62" 
+                    height="62" 
                     style="margin-left:8px; border-radius:4px;"
                 > <!-- Imagen del logo con texto alternativo -->
                 ASPEMAN <!-- Texto del logo (nombre de la empresa) -->
             </a> <!-- Cierre del enlace del logo -->
             <nav class="menu" aria-label="Menú principal"> <!-- Menú de navegación -->
-                <a href="#" title="Inicio">Inicio</a> <!-- Enlace al inicio -->
-                <a href="#" title="Servicios">Servicios</a> <!-- Enlace a servicios -->
-                <a href="#" title="Contacto">Contacto</a> <!-- Enlace a contacto -->
+                <a href="welcome.html" title="Inicio">Inicio</a> <!-- Enlace al inicio -->
+                <a href="nosotros.html" title="Nosotros">Nosotros</a> <!-- Enlace a servicios -->
+                <a href="beneficios.html" title="Servicios">Servicios</a> <!-- Enlace a servicios -->
+                <a href="noticias.html" title="Noticias">Noticias</a> <!-- Enlace a servicios -->
+                <a href="eventos.html" title="Eventos">Eventos</a> <!-- Enlace a servicios -->
+                <a href="contacto.html" title="Contacto">Contacto</a> <!-- Enlace a contacto -->
             </nav> <!-- Cierre del nav.menu -->
         </header> <!-- Cierre del header -->
          <section class="hero-carousel" aria-label="Carrusel de imágenes">
                 <div class="slides" role="list">
                     <div class="slide" role="listitem">
-                        <img src="../../FILES/ChatGPT Image 12 jun 2025, 12_29_49.png" alt="Imagen 1 — ejemplo">
+                        <img src="../../FILES/banner1.png" alt="Imagen 1 — ejemplo">
                     </div>
                     <div class="slide" role="listitem">
-                        <img src="../../FILES/clases.png" alt="Imagen 2 — ejemplo">
+                        <img src="../../FILES/banner2.png" alt="Imagen 2 — ejemplo">
                     </div>
                     <div class="slide" role="listitem">
-                        <img src="../../FILES/family.jpg" alt="Imagen 3 — ejemplo">
+                        <img src="../../FILES/banne3.png" alt="Imagen 3 — ejemplo">
                     </div>
                 </div>
 
@@ -177,7 +192,7 @@
                 </section>
             </div>
 
-            <section class="features-section" aria-labelledby="benefits-title">
+            <section class="features-section reveal" aria-labelledby="benefits-title">
                 <h2 id="benefits-title" class="reveal">Qué ganas siendo afiliado</h2>
                 <div class="features-grid reveal">
                     <article class="flip-card" tabindex="0" aria-label="Asesoría jurídica">
@@ -249,7 +264,7 @@
                 </div>
             </section>
 
-            <section class="activities-nearby" aria-labelledby="nearby-title">
+            <section class="activities-nearby reveal" aria-labelledby="nearby-title">
                 <h2 id="nearby-title">Actividades más cercanas</h2>
                 <table class="activities-table" aria-describedby="activities-description" style="width:100%; border-collapse:collapse; margin:1.25rem 0 2rem; font-family:inherit; background:#fff; box-shadow:0 18px 40px rgba(0,0,0,.08); border-radius:20px; overflow:hidden;">
                     <caption id="activities-description" style="caption-side:top; text-align:left; padding:1.25rem 1.5rem; font-weight:700; font-size:1.05rem; color:#114d2e;">Programa de actividades próximas</caption>
@@ -284,16 +299,16 @@
                 </table>
             </section>
 
-                        <section class="call-to-action" aria-labelledby="cta-title" style="background:#2e8b57; color:#fff; padding:2rem 1.5rem; border-radius:20px; margin:2rem 0; text-align:center; box-shadow:0 18px 40px rgba(0,0,0,.08);">
+                        <section class="call-to-action reveal" aria-labelledby="cta-title" style="background:#2e8b57; color:#fff; padding:2rem 1.5rem; border-radius:20px; margin:2rem 0; text-align:center; box-shadow:0 18px 40px rgba(0,0,0,.08);">
                 <div style="max-width:800px; margin:0 auto;">
                     <h2 id="cta-title" style="font-size:1.8rem; margin-bottom:0.75rem;">Afíliate o Contáctanos</h2>
                     <p style="font-size:1rem; margin-bottom:1.25rem; line-height:1.6;">Únete hoy y descubre todos los beneficios. Nuestro equipo está listo para atenderte y ayudarte a formar parte de nuestra comunidad.</p>
                     <a href="contacto.html" style="display:inline-block; padding:0.95rem 1.75rem; background:#fff; color:#2e8b57; font-weight:700; border-radius:999px; text-decoration:none; transition:background .2s ease, color .2s ease;">Contáctanos</a>
                 </div>
             </section>
-            <section class="company-info" aria-labelledby="company-info-title" style="background:#f4f8f4; border-radius:20px; padding:2rem; margin:2rem 0; box-shadow:0 18px 40px rgba(0,0,0,.05);">
+            <section class="company-info reveal" aria-labelledby="company-info-title" style="background:#f4f8f4; border-radius:20px; padding:2rem; margin:2rem 0; box-shadow:0 18px 40px rgba(0,0,0,.05);">
                 <div style="display:flex; flex-wrap:wrap; align-items:center; gap:1.5rem;">
-                    <img src="../../FILES/images.jpeg" alt="Logo de la empresa" style="width:120px; max-width:100%; border-radius:16px; background:#fff; padding:0.75rem;" />
+                    <img src="../../FILES/LOGO.png" alt="Logo de la empresa" style="width:120px; max-width:100%; border-radius:16px; background:#fff; padding:0.75rem;" />
                     <div style="flex:1; min-width:220px;">
                         <h2 id="company-info-title" style="margin:0 0 0.75rem 0; color:#114d2e; font-size:1.75rem;">Información de la empresa</h2>
                         <p style="margin:0; line-height:1.6; color:#174f2f;">Nuestra empresa está comprometida a brindar servicios de calidad y acompañamiento cercano. Aquí encontrarás todos los datos necesarios para contactarnos.</p>

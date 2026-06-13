@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Eventos | ASPEMAN</title>
+	<link rel="icon" href="../../FILES/LOGO.png" type="image/png">
+	<link rel="stylesheet" href="../estilos/eventos.css">
+    <link rel="stylesheet" href="../estilos/welcome.css">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<!-- NAVBAR -->
+        <header class="navbar"> <!-- Barra de navegación superior -->
+            <a href="#" class="logo" aria-label="Inicio"> <!-- Enlace del logo que lleva al inicio -->
+
+                <img 
+                    src="../../FILES/LOGO.png" 
+                    alt="Logo de ASPEMAN" 
+                    width="62" 
+                    height="62" 
+                    style="margin-left:8px; border-radius:4px;"
+                > <!-- Imagen del logo con texto alternativo -->
+                ASPEMAN <!-- Texto del logo (nombre de la empresa) -->
+            </a> <!-- Cierre del enlace del logo -->
+            <nav class="menu" aria-label="Menú principal"> <!-- Menú de navegación -->
+                <a href="welcome.html" title="Inicio">Inicio</a> <!-- Enlace al inicio -->
+                <a href="nosotros.html" title="Nosotros">Nosotros</a> <!-- Enlace a servicios -->
+                <a href="beneficios.html" title="Servicios">Servicios</a> <!-- Enlace a servicios -->
+                <a href="noticias.html" title="Noticias">Noticias</a> <!-- Enlace a servicios -->
+                <a href="eventos.html" title="Eventos">Eventos</a> <!-- Enlace a servicios -->
+                <a href="contacto.html" title="Contacto">Contacto</a> <!-- Enlace a contacto -->
+            </nav> <!-- Cierre del nav.menu -->
+        </header> <!-- Cierre del header -->
+
+	<!-- HERO HEADER -->
+	<header class="hero-header">
+		<h1>Próximos Eventos</h1>
+		<p>Descubre todas las actividades y eventos que ASPEMAN tiene para ti. Desde encuentros recreativos hasta talleres educativos.</p>
+	</header>
+
+	<div class="container">
+		<div class="layout">
+			<div class="calendar card">
+				<div class="month">
+					<button id="prev">&lt;</button>
+					<div id="monthLabel"></div>
+					<button id="next">&gt;</button>
+				</div>
+				<table class="calendar-table">
+					<thead>
+						<tr><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr>
+					</thead>
+					<tbody id="calendarBody"></tbody>
+				</table>
+				<div class="muted" style="margin-top:8px">Días resaltados contienen uno o más eventos. Haz clic en un día para ver detalles.</div>
+			</div>
+
+			<div class="upcoming card">
+				<h3 style="margin-top:0">Eventos próximos</h3>
+				<div id="upcomingList"></div>
+				<div class="past-events">
+					<h3 style="margin:8px 0">Eventos pasados</h3>
+					<div class="past-grid" id="pastGrid"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- MODAL DE EVENTO -->
+	<div id="eventModal" class="modal">
+		<div class="modal-overlay"></div>
+		<div class="modal-content">
+			<button class="modal-close" id="closeModal">&times;</button>
+			<div class="modal-body">
+				<img id="modalImg" src="" alt="Evento" class="modal-image">
+				<div class="modal-info">
+					<h2 id="modalTitle"></h2>
+					<p class="modal-date"><strong>Fecha:</strong> <span id="modalDate"></span></p>
+					<p class="modal-description" id="modalDesc"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// Datos de ejemplo. Reemplazar con datos reales según su backend.
+		const events = [
+			{id:1,title:'Concierto de la banda local',date:'2026-06-20',img:'https://picsum.photos/seed/1/400/300',desc:'Música en vivo en la plaza. Disfruta de una noche memorable con la mejor música de nuestros artistas locales. El evento contará con servicios de comida y bebida.'},
+			{id:2,title:'Feria gastronómica',date:'2026-06-05',img:'https://picsum.photos/seed/2/400/300',desc:'Prueba platos típicos de la región. Una celebración de la gastronomía local con más de 20 stands de comida tradicional y moderna. Entrada libre.'},
+			{id:3,title:'Taller de fotografía',date:'2026-05-12',img:'https://picsum.photos/seed/3/400/300',desc:'Aprende técnicas básicas de fotografía con profesionales. Este taller incluye sesión práctica en vivo, material de apoyo y certificado de participación.'},
+			{id:4,title:'Exposición de arte',date:'2026-04-22',img:'https://picsum.photos/seed/4/400/300',desc:'Obras de artistas locales en una galería al aire libre. Catálogo disponible con información detallada de cada artista. Cocktail de inauguración a las 6 PM.'}
+		];
+
+		const today = new Date();
+		let currentMonth = today.getMonth();
+		let currentYear = today.getFullYear();
+
+		// MODAL FUNCTIONS
+		const modal = document.getElementById('eventModal');
+		const closeBtn = document.getElementById('closeModal');
+		const modalOverlay = document.querySelector('.modal-overlay');
+
+		function openModal(event) {
+			document.getElementById('modalImg').src = event.img;
+			document.getElementById('modalTitle').textContent = event.title;
+			document.getElementById('modalDate').textContent = event.date;
+			document.getElementById('modalDesc').textContent = event.desc;
+			modal.classList.add('active');
+			document.body.style.overflow = 'hidden';
+		}
+
+		function closeModals() {
+			modal.classList.remove('active');
+			document.body.style.overflow = 'auto';
+		}
+
+		closeBtn.addEventListener('click', closeModals);
+		modalOverlay.addEventListener('click', closeModals);
+		window.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') closeModals();
+		});
+
+		function renderCalendar(month,year){
+			const monthLabel = document.getElementById('monthLabel');
+			const dt = new Date(year,month,1);
+			monthLabel.textContent = dt.toLocaleString('es-ES',{month:'long',year:'numeric'});
+
+			const startDay = (new Date(year,month,1).getDay()+6)%7;
+			const daysInMonth = new Date(year,month+1,0).getDate();
+			const tbody = document.getElementById('calendarBody');
+			tbody.innerHTML='';
+			let row = document.createElement('tr');
+			for(let i=0;i<startDay;i++){ const td=document.createElement('td'); row.appendChild(td); }
+			for(let d=1;d<=daysInMonth;d++){
+				if(row.children.length===7){ tbody.appendChild(row); row=document.createElement('tr'); }
+				const td=document.createElement('td'); td.className='day';
+				const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+				const dayEvents = events.filter(e=>e.date===dateStr);
+				td.innerHTML = `<div class="date-num">${d}</div>`;
+				if(dayEvents.length){ td.classList.add('has-event'); td.addEventListener('click',()=>showEventsForDate(dateStr)); const dot=document.createElement('div'); dot.className='dot'; td.appendChild(dot); }
+				row.appendChild(td);
+			}
+			while(row.children.length<7){ row.appendChild(document.createElement('td')); }
+			tbody.appendChild(row);
+		}
+
+		function showEventsForDate(dateStr){
+			const list = document.getElementById('upcomingList');
+			const dayEvents = events.filter(e=>e.date===dateStr).sort();
+			if(!dayEvents.length){ list.innerHTML = '<div class="muted">No hay eventos este día.</div>'; return; }
+			list.innerHTML = dayEvents.map(ev=>`<div class="event" onclick="openModal({id:${ev.id},title:'${ev.title.replace(/'/g,"\\'")}',date:'${ev.date}',img:'${ev.img}',desc:'${ev.desc.replace(/'/g,"\\'")}'}); return false;"><img src="${ev.img}" alt=""><div><strong>${ev.title}</strong><div class="muted">${ev.date}</div><div>${ev.desc}</div></div></div>`).join('');
+		}
+
+		function renderUpcomingAndPast(){
+			const nowIso = today.toISOString().slice(0,10);
+			const upcoming = events.filter(e=>e.date>=nowIso).sort((a,b)=>a.date.localeCompare(b.date));
+			const past = events.filter(e=>e.date<nowIso).sort((a,b)=>b.date.localeCompare(a.date));
+			const upEl = document.getElementById('upcomingList');
+			upEl.innerHTML = upcoming.length? upcoming.map(ev=>`<div class="event" onclick="openModal({id:${ev.id},title:'${ev.title.replace(/'/g,"\\'")}',date:'${ev.date}',img:'${ev.img}',desc:'${ev.desc.replace(/'/g,"\\'")}'}); return false;"><img src="${ev.img}" alt=""><div><strong>${ev.title}</strong><div class="muted">${ev.date}</div><div>${ev.desc}</div></div></div>`).join('') : '<div class="muted">No hay eventos próximos.</div>';
+			const pastGrid = document.getElementById('pastGrid');
+			pastGrid.innerHTML = past.length? past.map(ev=>`<div class="past-card" onclick="openModal({id:${ev.id},title:'${ev.title.replace(/'/g,"\\'")}',date:'${ev.date}',img:'${ev.img}',desc:'${ev.desc.replace(/'/g,"\\'")}'}); return false;"><img src="${ev.img}" alt=""><div style="margin-top:6px"><strong>${ev.title}</strong><div class="muted">${ev.date}</div></div></div>`).join('') : '<div class="muted">No hay eventos pasados.</div>';
+		}
+
+		document.getElementById('prev').addEventListener('click',()=>{ currentMonth--; if(currentMonth<0){currentMonth=11;currentYear--;} renderCalendar(currentMonth,currentYear); });
+		document.getElementById('next').addEventListener('click',()=>{ currentMonth++; if(currentMonth>11){currentMonth=0;currentYear++;} renderCalendar(currentMonth,currentYear); });
+
+		renderCalendar(currentMonth,currentYear);
+		renderUpcomingAndPast();
+	</script>
+</body>
+</html>

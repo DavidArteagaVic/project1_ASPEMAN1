@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Noticias - ASPEMAN</title>
+  <link rel="stylesheet" href="../estilos/noticias.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="../../FILES/LOGO.png" type="image/png">
+ <link rel="stylesheet" href="../estilos/welcome.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR (reemplaza con tu navbar) ========== -->
+        <header class="navbar"> <!-- Barra de navegación superior -->
+            <a href="#" class="logo" aria-label="Inicio"> <!-- Enlace del logo que lleva al inicio -->
+
+                <img 
+                    src="../../FILES/LOGO.png" 
+                    alt="Logo de ASPEMAN" 
+                    width="62" 
+                    height="62" 
+                    style="margin-left:8px; border-radius:4px;"
+                > <!-- Imagen del logo con texto alternativo -->
+                ASPEMAN <!-- Texto del logo (nombre de la empresa) -->
+            </a> <!-- Cierre del enlace del logo -->
+            <nav class="menu" aria-label="Menú principal"> <!-- Menú de navegación -->
+                <a href="welcome.html" title="Inicio">Inicio</a> <!-- Enlace al inicio -->
+                <a href="nosotros.html" title="Nosotros">Nosotros</a> <!-- Enlace a servicios -->
+                <a href="beneficios.html" title="Servicios">Servicios</a> <!-- Enlace a servicios -->
+                <a href="noticias.html" title="Noticias">Noticias</a> <!-- Enlace a servicios -->
+                <a href="eventos.html" title="Eventos">Eventos</a> <!-- Enlace a servicios -->
+                <a href="contacto.html" title="Contacto">Contacto</a> <!-- Enlace a contacto -->
+            </nav> <!-- Cierre del nav.menu -->
+        </header> <!-- Cierre del header -->
+
+  <!-- ========== ENCABEZADO ========== -->
+  <header class="noticias-header">
+    <div class="header-content">
+      <p class="header-eyebrow">Mantente informado</p>
+      <h1>Noticias y Novedades</h1>
+      <p class="header-sub">Todo lo que ocurre en nuestra asociación, al alcance de tus manos.</p>
+    </div>
+  </header>
+
+  <main class="noticias-main">
+
+    <!-- ========== NOTICIA DESTACADA ========== -->
+    <section class="destacada-section">
+      <h2 class="section-label">Noticia destacada</h2>
+      <article class="noticia-destacada">
+        <div class="destacada-img">
+          <img src="https://placehold.co/800x420/2e7d32/ffffff?text=Noticia+Destacada" alt="Noticia destacada"/>
+          <span class="badge badge-evento">Evento</span>
+        </div>
+        <div class="destacada-info">
+          <span class="fecha">12 de junio, 2025</span>
+          <h3>Gran encuentro anual de pensionados de Nariño reunió a más de 500 afiliados</h3>
+          <p>El evento realizado en las instalaciones de nuestra sede central contó con presentaciones del comité de Coros, Teatro y Guitarra, además de actividades deportivas y convivencia entre afiliados de toda la región.</p>
+          <a href="#" class="btn-leer">Leer más →</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ========== FILTROS ========== -->
+    <section class="filtros-section">
+      <div class="filtros">
+        <button class="filtro activo" data-filtro="todos">Todos</button>
+        <button class="filtro" data-filtro="evento">Eventos</button>
+        <button class="filtro" data-filtro="comite">Comités</button>
+        <button class="filtro" data-filtro="institucional">Institucional</button>
+        <button class="filtro" data-filtro="convenio">Convenios</button>
+      </div>
+    </section>
+
+    <!-- ========== GRID DE NOTICIAS ========== -->
+    <section class="grid-section">
+      <div class="noticias-grid">
+
+        <article class="noticia-card" data-categoria="comite">
+          <div class="card-img">
+            <img src="https://placehold.co/400x220/2e7d32/ffffff?text=Comit%C3%A9+Coros" alt="Comité Coros"/>
+            <span class="badge badge-comite">Comités</span>
+          </div>
+          <div class="card-info">
+            <span class="fecha">5 de junio, 2025</span>
+            <h4>El comité de Coros se presentó en el Teatro Imperial de Pasto</h4>
+            <p>Nuestros afiliados demostraron su talento ante un público de más de 300 personas en una emotiva noche musical.</p>
+            <a href="#" class="btn-leer">Leer más →</a>
+          </div>
+        </article>
+
+        <article class="noticia-card" data-categoria="convenio">
+          <div class="card-img">
+            <img src="https://placehold.co/400x220/f9a825/ffffff?text=Convenio+Salud" alt="Convenio salud"/>
+            <span class="badge badge-convenio">Convenios</span>
+          </div>
+          <div class="card-info">
+            <span class="fecha">28 de mayo, 2025</span>
+            <h4>Nuevo convenio con clínica local ofrece descuentos a todos los afiliados</h4>
+            <p>A partir del 1 de julio los afiliados activos podrán acceder a consultas médicas especializadas con hasta un 40% de descuento.</p>
+            <a href="#" class="btn-leer">Leer más →</a>
+          </div>
+        </article>
+
+        <article class="noticia-card" data-categoria="institucional">
+          <div class="card-img">
+            <img src="https://placehold.co/400x220/1b5e20/ffffff?text=Asamblea+2025" alt="Asamblea"/>
+            <span class="badge badge-institucional">Institucional</span>
+          </div>
+          <div class="card-info">
+            <span class="fecha">15 de mayo, 2025</span>
+            <h4>Asamblea general aprobó el plan de actividades para el segundo semestre</h4>
+            <p>En reunión ordinaria, la directiva presentó el cronograma de eventos, talleres y actividades recreativas planeadas para el resto del año.</p>
+            <a href="#" class="btn-leer">Leer más →</a>
+          </div>
+        </article>
+
+        <article class="noticia-card" data-categoria="evento">
+          <div class="card-img">
+            <img src="https://placehold.co/400x220/2e7d32/ffffff?text=Caminata+Ecol%C3%B3gica" alt="Caminata"/>
+            <span class="badge badge-evento">Eventos</span>
+          </div>
+          <div class="card-info">
+            <span class="fecha">10 de mayo, 2025</span>
+            <h4>Comité Caminantes realizó recorrido por la Laguna de la Cocha</h4>
+            <p>Más de 60 afiliados participaron en esta jornada ecológica que recorrió los senderos naturales del sur de Nariño.</p>
+            <a href="#" class="btn-leer">Leer más →</a>
+          </div>
+        </article>
+
+        <article class="noticia-card" data-categoria="comite">
+          <div class="card-img">
+            <img src="https://placehold.co/400x220/f9a825/ffffff?text=Comit%C3%A9+Teatro" alt="Teatro"/>
+            <span class="badge badge-comite">Comités</span>
+          </div>
+          <div class="card-info">
+            <span class="fecha">2 de mayo, 2025</span>
+            <h4>El comité de Teatro estrenó obra sobre la historia de Nariño</h4>
+            <p>Una emotiva obra teatral escrita y actuada por nuestros afiliados rindió homenaje a las tradiciones culturales del departamento.</p>
+            <a href="#" class="btn-leer">Leer más →</a>
+          </div>
+        </article>
+
+        <article class="noticia-card" data-categoria="institucional">
+          <div class="card-img">
+            <img src="https://placehold.co/400x220/1b5e20/ffffff?text=Nuevos+Afiliados" alt="Afiliados"/>
+            <span class="badge badge-institucional">Institucional</span>
+          </div>
+          <div class="card-info">
+            <span class="fecha">20 de abril, 2025</span>
+            <h4>ASPEMAN suma 80 nuevos afiliados en lo corrido del año</h4>
+            <p>La asociación sigue creciendo gracias al voz a voz de sus miembros y a las campañas de difusión realizadas en municipios del departamento.</p>
+            <a href="#" class="btn-leer">Leer más →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ========== PAGINACIÓN ========== -->
+    <div class="paginacion">
+      <button class="pag-btn activo">1</button>
+      <button class="pag-btn">2</button>
+      <button class="pag-btn">3</button>
+      <button class="pag-btn">→</button>
+    </div>
+
+  </main>
+
+  <!-- ========== FOOTER (reemplaza con tu footer) ========== -->
+  <footer class="footer">
+    <p>© 2025 ASPEMAN — Asociación de Pensionados de Nariño</p>
+  </footer>
+
+  <script>
+    // Filtros de categoría
+    const filtros = document.querySelectorAll('.filtro');
+    const cards = document.querySelectorAll('.noticia-card');
+
+    filtros.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filtros.forEach(b => b.classList.remove('activo'));
+        btn.classList.add('activo');
+
+        const filtro = btn.dataset.filtro;
+        cards.forEach(card => {
+          if (filtro === 'todos' || card.dataset.categoria === filtro) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
